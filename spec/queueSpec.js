@@ -25,16 +25,27 @@ describe("queue", function() {
     expect(function(){queue.dequeue()}).not.throws();
   });
 
-  it('should report its size correctly', function() {
-    var a = 'a', b = 'b', c = 'c';
+  it('should report its size as 0 when empty', function(){
+    expect(queue.size()).equal(0);
+  });
 
-    queue.enqueue(a);
-    queue.enqueue(b);
-    queue.enqueue(c);
+  it('enqueue should increase size', function(){
+    queue.enqueue('a');
+    queue.enqueue('b');
+    queue.enqueue('c');
     expect(queue.size()).equal(3);
+  })
 
+  it('dequeue should decrease size', function(){
+    queue.enqueue('a');
+    queue.enqueue('b');
+    queue.enqueue('c');
     queue.dequeue();
     expect(queue.size()).equal(2);
+  })
+
+
+  it('size should always be positive', function() {
 
     queue.dequeue();
     queue.dequeue();
