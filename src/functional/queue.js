@@ -16,7 +16,7 @@ var makeQueue = function(){
 
   queue.dequeue = function(){
     size && size--;
-    var minKey;
+    var minKey/* = Number.POSITIVE_INFINITY*/;
     for (var key in storage) {
       if (typeof minKey === 'undefined') {
         minKey = key;
