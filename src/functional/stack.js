@@ -8,6 +8,7 @@ var makeStack = function(){
   var stack = {};
 
   stack.push = function(value){
+    size++;
   };
 
   stack.pop = function(){
