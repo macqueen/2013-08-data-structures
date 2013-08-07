@@ -7,12 +7,27 @@ var makeQueue = function(){
   // Implement the methods below
   var queue = {};
 
+  var position = 0;
+
   queue.enqueue = function(value){
     size++;
+    storage[position++] = value;
   };
 
   queue.dequeue = function(){
     size && size--;
+    var minKey;
+    for (var key in storage) {
+      if (typeof minKey === 'undefined') {
+        minKey = key;
+      }
+      else if (key < minKey){
+        minKey = key;
+      }
+    }
+    var result = storage[minKey];
+    delete storage[minKey];
+    return result;
   };
 
   queue.size = function(){
