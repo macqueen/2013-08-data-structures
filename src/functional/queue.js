@@ -8,6 +8,7 @@ var makeQueue = function(){
   var queue = {};
 
   queue.enqueue = function(value){
+    size++;
   };
 
   queue.dequeue = function(){
