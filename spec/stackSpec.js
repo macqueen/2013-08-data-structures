@@ -38,7 +38,8 @@ describe("stack", function() {
     expect(stack.size()).equal(2);
   });
 
-  it('should report its size correctly', function() {
+
+  it('should decrease size when popped', function() {
     var a = 'a', b = 'b', c = 'c';
 
     stack.push(a);
@@ -48,7 +49,9 @@ describe("stack", function() {
 
     stack.pop();
     expect(stack.size()).equal(2);
+  });
 
+  it('should never have a negative size', function(){
     stack.pop();
     stack.pop();
     stack.pop();
